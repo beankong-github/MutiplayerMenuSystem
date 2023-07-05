@@ -63,11 +63,11 @@ AMenuSystemCharacter::AMenuSystemCharacter()
 		// 온라인 세션 받아오기
 		OnlineSessionInterface = OnlineSubsystem->GetSessionInterface();
 		
-		if (GEngine)
-		{
-			// OnlineSubsystem 이름 출력하기
-			GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Blue, FString::Printf(TEXT("Found subsystem %s"), *OnlineSubsystem->GetSubsystemName().ToString()));
-		}
+		//if (GEngine)
+		//{
+		//	// OnlineSubsystem 이름 출력하기
+		//	GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Blue, FString::Printf(TEXT("Found subsystem %s"), *OnlineSubsystem->GetSubsystemName().ToString()));
+		//}
 	}
 }
 
