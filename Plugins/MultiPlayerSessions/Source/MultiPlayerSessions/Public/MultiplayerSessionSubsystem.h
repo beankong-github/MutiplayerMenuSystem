@@ -12,12 +12,14 @@
 // Declaring  our own custom delegate for the Menu class to bind callbacks to
 //----------------------------------------------------------------------------
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FMultiplayerOnCreateSessionComplete, bool, bWasSuccesssful);
-
-
+DECLARE_MULTICAST_DELEGATE_TwoParams(FMultiplayerOnFindSessionComplete, const TArray<FOnlineSessionSearchResult>& SessionResults, bool bwasSuccessful);
+DECLARE_MULTICAST_DELEGATE_OneParam(FMultiplayerOnJoinSessionComplete, EOnJoinSessionCompleteResult::Type Result);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FMultiplayerOnStartSessionComplete, bool, bWasSuccessful);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FMultiplayerOnDestroySessionComplete, bool, bWasSuccessful);
 
 /**
  * 
- */
+ */ 
 UCLASS()
 class MULTIPLAYERSESSIONS_API UMultiplayerSessionSubsystem : public UGameInstanceSubsystem
 {
@@ -40,7 +42,10 @@ public:
 	// Our own custom delegate for the Menu class to bind callbacks
 	//-------------------------------------------------------------
 	FMultiplayerOnCreateSessionComplete MultiplayerOnCreateSessionComplete;
-
+	FMultiplayerOnFindSessionComplete MultiplayerOnFindSessionComplete;
+	FMultiplayerOnJoinSessionComplete MultiplayerOnJoinSessionComplete;
+	FMultiplayerOnStartSessionComplete MultiplayerOnStartSessionComplete;
+	FMultiplayerOnDestroySessionComplete MultiplayerOnDestroySessionComplete;
 
 protected:
 	// ----------------------------------------------------------------------------------------------
@@ -56,7 +61,8 @@ protected:
 
 private:
 	IOnlineSessionPtr SessionInterface;
-	TSharedPtr<FOnlineSessionSettings> LastSessionSettings;
+	TSharedPtr<FOnlineSessionSettings>	LastSessionSettings;
+	TSharedPtr<FOnlineSessionSearch>	LastSessionSearch;
 
 	// ------------------------------------------------------------------------
 	// To add to the Onlie Session Interface delegate list.

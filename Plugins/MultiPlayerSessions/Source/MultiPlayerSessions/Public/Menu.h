@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Blueprint/UserWidget.h"
+#include "Interfaces/OnlineSessionInterface.h"
 
 #include "Menu.generated.h"
 
@@ -25,6 +26,13 @@ protected:
 	// ----------------------------------------------------------------------
 	UFUNCTION()
 	void OnCreateSession(bool bWasSuccessful);
+	void OnFindSession(const TArray<FOnlineSessionSearchResult>& SessionResults, bool bwasSuccessful);
+	void OnJoinSession(EOnJoinSessionCompleteResult::Type Result);
+	UFUNCTION()
+	void OnStartSession(bool bWasSuccessful);
+	UFUNCTION()
+	void OnDestroySession(bool bWasSuccessful);
+
 
 private:
 	class UMultiplayerSessionSubsystem* MultiplayerSessionSubsystem; // The Subsystem designed to handle all online session functionality
