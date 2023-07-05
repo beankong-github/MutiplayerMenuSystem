@@ -64,6 +64,10 @@ private:
 	TSharedPtr<FOnlineSessionSettings>	LastSessionSettings;
 	TSharedPtr<FOnlineSessionSearch>	LastSessionSearch;
 
+	bool	bCreateSessionOnDestroy{false};
+	int32	LastNumPublicConnections;
+	FString LastMatchType;
+
 	// ------------------------------------------------------------------------
 	// To add to the Onlie Session Interface delegate list.
 	// We'll bind our MultiplayersessionSubsystem internal callbacks to these.
