@@ -5,10 +5,12 @@
 #include "OnlineSessionSettings.h"
 #include "OnlineSubsystem.h"
 
-void UMenu::MenuSetup(int32 NumberOfPublicConnections, FString TypeOfMatch)
+void UMenu::MenuSetup(int32 NumberOfPublicConnections, FString TypeOfMatch, FString LobbyPath)
 {
 	NumPublicConnections = NumberOfPublicConnections;
 	MatchType = TypeOfMatch;
+	PathToLevel = FString::Printf(TEXT("%s?listen"), *LobbyPath);
+
 
 	AddToViewport();
 	SetVisibility(ESlateVisibility::Visible);
@@ -83,7 +85,7 @@ void UMenu::OnCreateSession(bool bWasSuccessful)
 		if (World)
 		{
 			// 세션을 생성하면 Lobby로 이동
-			World->ServerTravel("/Game/ThirdPerson/Maps/Lobby?listen");
+			World->ServerTravel(PathToLevel);
 		}
 	}
 	else

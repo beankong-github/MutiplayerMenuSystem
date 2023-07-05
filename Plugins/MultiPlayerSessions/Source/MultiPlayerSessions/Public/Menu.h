@@ -15,7 +15,7 @@ class MULTIPLAYERSESSIONS_API UMenu : public UUserWidget
 
 public:
 	UFUNCTION(BlueprintCallable)
-	void MenuSetup(int32 NumberOfPublicConnections = 4, FString TypeOfMatch = FString(TEXT("FreeForAll")));
+	void MenuSetup(int32 NumberOfPublicConnections = 4, FString TypeOfMatch = FString(TEXT("FreeForAll")), FString LobbyPath = FString(TEXT("/Game/ThirdPerson/Maps/Lobby")));
 
 protected:
 	virtual bool Initialize() override;		// Call After UGameInstance Initialize
@@ -39,6 +39,7 @@ private:
 	
 	int32	NumPublicConnections{4};
 	FString MatchType{TEXT("FreeForAll")};
+	FString PathToLevel{ TEXT("/Game/ThirdPerson/Maps/Lobby") };
 
 
 	UPROPERTY(meta = (BindWidget)) // 블루프린트의 위젯과 변수 연결. (주의! 위젯에 있는 버튼 이름과 같은 변수명이어야 한다)
