@@ -1,4 +1,4 @@
-# MutiplayerMenuSystem (ongoing)
+# MutiplayerMenuSystem
 An Unreal Engine plug-in for handling online multiplayer sessions, including a menu system.
 
 # Blog
@@ -13,3 +13,6 @@ An Unreal Engine plug-in for handling online multiplayer sessions, including a m
 (5) [Menu UI 추가](https://beankong-devlog.tistory.com/130)
 
 (6) [최종 결과](https://beankong-devlog.tistory.com/131)
+
+# Video
+[![Result Video](https://youtu.be/o9AToDXFB-Q/0.jpg)](https://youtu.be/o9AToDXFB-Q)
